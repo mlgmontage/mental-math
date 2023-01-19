@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useParams } from "react-router-dom";
 import { useProblem } from "entities/problems";
+import { interpret } from "shared/lib";
 
 const Problem = () => {
   const { id } = useParams();
@@ -31,6 +32,8 @@ const Problem = () => {
         }}
       </Formik>
       <div>{problem.description}</div>
+      {interpret(problem.a)}
+      {interpret(problem.b)}
     </div>
   );
 };

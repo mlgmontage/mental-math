@@ -8,8 +8,8 @@ const initialState: Problems = [
     title: "Multiply by 11",
     description:
       "To solve this problem, simply add the digits, 3 + 2 = 5 put the 5 between the 3 and the 2, and there is your answer: 352",
-    a: "digit 2",
-    b: "number 11",
+    a: "range 10 99",
+    b: "const 11",
   },
 ];
 
