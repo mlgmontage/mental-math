@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
+import { useSelector } from "react-redux";
 import type { Problems } from "./problems.types";
 
 const initialState: Problems = [
@@ -21,5 +22,8 @@ const problemsSlice = createSlice({
 export const problemsSelector = (state: RootState) => state.problems;
 
 export const {} = problemsSlice.actions;
+
+export const useProblem = (id: number) =>
+  useSelector(createSelector(problemsSelector, (problems) => problems[id]));
 
 export const problemsRecucer = problemsSlice.reducer;
