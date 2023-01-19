@@ -4,6 +4,7 @@
 export type Problem = {
   title: string;
   description: string; // mini tutorial
+  operation: string;
   a: string; // code in custom language for generating random number
   b: string;
 };

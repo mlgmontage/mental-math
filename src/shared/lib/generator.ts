@@ -30,3 +30,15 @@ export const generate: (tokens: string[]) => number = (tokens) => {
 
 export const interpret: (code: string) => number = compose(generate, lexer);
 export const checkSyntax = (code: string) => interpret(code) !== 1;
+
+export type Operation = "+" | "-" | "*" | "/" | "^";
+
+export const solve = (op: Operation, a: number, b: number) => {
+  if (op == "+") return a + b;
+  if (op == "-") return a - b;
+  if (op == "*") return a * b;
+  if (op == "/") return a / b;
+  if (op == "^") return a ^ b;
+
+  return 0;
+};
