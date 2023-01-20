@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProblem } from "entities/problems";
 import { interpret, Operation, solve } from "shared/lib";
 import { useEffect, useState } from "react";
+import { ProfileInfo } from "entities/profile/ui/profileinfo";
 
 const Problem = () => {
   const { id } = useParams();
@@ -25,22 +26,29 @@ const Problem = () => {
 
   return (
     <div>
-      <button onClick={() => setChange(!change)}>new</button>
+      <ProfileInfo />
       <h2>{problem.title}</h2>
       <Formik
         initialValues={{
           result: "",
         }}
         onSubmit={(values, helpers) => {
-          console.warn(values);
           helpers.resetForm();
+          setChange(!change);
+          if (solve(op, a, b) === Number(values.result)) {
+            console.warn("yes");
+          }
         }}
       >
         {() => {
           return (
             <Form>
-              <Field name="result" />
-              <button type="submit">Check!</button>
+              <Field
+                name="result"
+                autoFocus
+                autoComplete="off"
+                className="input"
+              />
             </Form>
           );
         }}
@@ -49,8 +57,7 @@ const Problem = () => {
         <h1>{a}</h1>
         <h1>{op}</h1>
         <h1>{b}</h1>
-        <h1>=</h1>
-        <h1>{solve(op, a, b)}</h1>
+        <h1>{}</h1>
       </div>
 
       <div>{problem.description}</div>

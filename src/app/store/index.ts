@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import { problemsRecucer } from "entities/problems";
+import { profileReducer } from "entities/profile/model/profile";
 
 export const store = configureStore({
   reducer: {
     problems: problemsRecucer,
+    profile: profileReducer,
   },
 });
 

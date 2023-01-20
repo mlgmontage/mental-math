@@ -1,6 +1,9 @@
 @import url("./base.css");
-@import url("./modules/sidebar.css");
 @import url("./utils.css");
+
+@import url("./modules/sidebar.css");
+@import url("./modules/form.css");
+@import url("./modules/profile.css");
 
 :root {
   --ff: Ubuntu, sans-serif;
