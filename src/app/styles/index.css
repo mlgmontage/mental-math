@@ -4,9 +4,11 @@
 @import url("./modules/sidebar.css");
 @import url("./modules/form.css");
 @import url("./modules/profile.css");
+@import url("./modules/register.css");
 
 :root {
   --ff: Ubuntu, sans-serif;
+  --round: 0.4rem;
 }
 
 .container {

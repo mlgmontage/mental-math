@@ -1,11 +1,18 @@
 import { Field, Form, Formik } from "formik";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useProblem } from "entities/problems";
 import { interpret, Operation, solve } from "shared/lib";
 import { useEffect, useState } from "react";
 import { ProfileInfo } from "entities/profile/ui/profileinfo";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, profileSelector } from "entities/profile";
 
 const Problem = () => {
+  const dispatch = useDispatch();
+  const profile = useSelector(profileSelector);
+
+  if (!profile.name.length) return <Navigate to="/register" />;
+
   const { id } = useParams();
   if (!id) return <div>Error: Id is not provided.</div>;
 
@@ -36,7 +43,7 @@ const Problem = () => {
           helpers.resetForm();
           setChange(!change);
           if (solve(op, a, b) === Number(values.result)) {
-            console.warn("yes");
+            dispatch(increment());
           }
         }}
       >

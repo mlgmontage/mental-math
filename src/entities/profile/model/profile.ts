@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 
 type Profile = {
@@ -18,11 +18,14 @@ const profileSlice = createSlice({
     increment: (state) => {
       state.points += 1;
     },
+    setName: (state, { payload }: PayloadAction<string>) => {
+      state.name = payload;
+    },
   },
 });
 
 export const profileSelector = (state: RootState) => state.profile;
 
-export const { increment } = profileSlice.actions;
+export const { increment, setName } = profileSlice.actions;
 
 export const profileReducer = profileSlice.reducer;

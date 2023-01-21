@@ -1,7 +1,13 @@
 const Home = () => {
   return (
     <div>
-      <h1>Hello, world</h1>
+      <center>
+        <h1>Mental math app</h1>
+        <div>
+          you will learn to do math in your head faster than you ever thought
+          possible
+        </div>
+      </center>
     </div>
   );
 };
